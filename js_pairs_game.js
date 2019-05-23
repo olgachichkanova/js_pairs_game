@@ -1,41 +1,26 @@
 'use strict'
+function game() {
+   //to do draw the cards
+
+let cards = [];
+for (let i = 1; i < 9; i++) {
+    cards.push([i]);
+    cards.push([i]);
+}
+
+//shuffling cards
+cards = cards.sort(() => Math.random() - 0.5);
 
 //to do draw the board
-
-const board = document.createElement('div');
-document.body.appendChild(board);
-board.classList.add('board');
-
-for (let i = 0; i < 16; i++) {
-    const cell = document.createElement('div');
-    board.appendChild(cell);
-    cell.classList.add('cell');
-}
-
-const cell = document.getElementsByClassName('cell');
-let x = 0, y = 3;
-
-for (let i = 0; i < cell.length; i++) {
-    
-    if (x > 3) {
-        x = 0;
-        y--;
-    }
-cell[i].setAttribute('posX', x);
-cell[i].setAttribute('posY', y);
-
-x++;
-
-cell[i].style.backgroundColor = 'white';
-
-}
+for(let j = 0; j < 16; j++) document.getElementById('board').innerHTML += '<a card="' + cards[j] + '" class="card' + cards[j] + ' hidden" card=""> </a>';
 
 
-//to do draw the cards
 
-const colors = ['red', 'green', 'orange', 'purple', 'blue', 'pink', 'lightblue', 'lightgreen'];
 
 //to do make the start button
-//shuffling cards
+
 //make the counter
-//make the win alert
+//make the win alert 
+}
+
+game();
