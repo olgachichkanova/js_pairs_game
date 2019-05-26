@@ -56,12 +56,12 @@ body {
     border: 1px solid #dfdfdf;
 }
 
-#board .card1 {background-color: #AB313D};
-#board .card2 {background-color: #005C9D};
-#board .card3 {background-color: #F78522};
-#board .card4 {background-color: #A32B68};
-#board .card5 {background-color: #01847E};
-#board .card6 {background-color: #00B2F0};
-#board .card7 {background-color: #ECC5D8};
-#board .card8 {background-color: #A5D239};
-#board .hidden {background-color: #fff};
+#board .card1 {background-color: #AB313D;}
+#board .card2 {background-color: #005C9D;}
+#board .card3 {background-color: #F78522;}
+#board .card4 {background-color: #A32B68;}
+#board .card5 {background-color: #01847E;}
+#board .card6 {background-color: #00B2F0;}
+#board .card7 {background-color: #ECC5D8;}
+#board .card8 {background-color: #A5D239;}
+#board .hidden {background-color: #fff;}
