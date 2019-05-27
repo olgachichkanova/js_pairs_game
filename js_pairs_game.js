@@ -8,6 +8,36 @@ function game() {
         cards.push([i]);
     }
 
+    let minutes = document.getElementById('minutes');
+    let seconds = document.getElementById('seconds');
+    let startButton = document.getElementById('start');
+    let totalSeconds = 0;
+    let timer = null;
+
+    setInterval(setTime, 1000);
+
+    startButton.addEventListener('click', startGame); 
+    function startGame() {
+    if (!timer) {
+      timer = setInterval(setTime, 1000);
+    }
+  };
+
+    function setTime() {
+    ++totalSeconds;
+    seconds.innerHTML = pad(totalSeconds % 60);
+    minutes.innerHTML = pad(parseInt(totalSeconds / 60));
+    }
+
+    function pad(value) {
+    let valueString = value + "";
+    if (valueString.length < 2) {
+        return "0" + valueString;
+    } else {
+        return valueString;
+    }
+    }
+
     //shuffling cards
     cards = cards.sort(() => Math.random() - 0.5);
 
@@ -20,24 +50,27 @@ function game() {
         let check = false; 
         let selectedColor = 0; 
         let selectedElement;
-        let open = 0;;
-        // let timer; 
+        let openElement = 0;
+        
     let a = document.getElementsByTagName('a');
     for (let i = 0; i < a.length; i++) {
         a[i].addEventListener('click', function(e) {
             let element = e.target;
             element.className = element.className.replace('hidden', '');
 
-            setTimeut (function() {
+            setTimeout (function() {
                 if (check) {
                     check = false;
 
                     if (element.getAttribute('card') == selectedColor) {
-                        open++;
+                        openElement++;
+                        if (openElement === 8) {
+                            alert('You win! Your time was'  + minutes + ':' + seconds);
+                        }
                     }
                     else {
-                        selectedElement.className += ' hidden'; 
-                        element.className += ' hidden';
+                        selectedElement.className += 'hidden'; 
+                        element.className += 'hidden';
                     }
                 }
                 else {
@@ -45,12 +78,16 @@ function game() {
                     selectedElement = element;
                     check = true;
                 }
-            }, 100); 
+            }, 200); 
 
         });
     };
     
+    //add timer with start button
+
     
+
+
 
 
     //to do make the start button
