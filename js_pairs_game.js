@@ -8,15 +8,16 @@ function game() {
         cards.push([i]);
     }
 
+    //to make timer which start counting after click on start button
     let minutes = document.getElementById('minutes');
     let seconds = document.getElementById('seconds');
     let startButton = document.getElementById('start');
     let totalSeconds = 0;
     let timer = null;
 
-    setInterval(setTime, 1000);
-
+    
     startButton.addEventListener('click', startGame); 
+
     function startGame() {
     if (!timer) {
       timer = setInterval(setTime, 1000);
@@ -37,6 +38,7 @@ function game() {
         return valueString;
     }
     }
+    
 
     //shuffling cards
     cards = cards.sort(() => Math.random() - 0.5);
@@ -65,7 +67,8 @@ function game() {
                     if (element.getAttribute('card') == selectedColor) {
                         openElement++;
                         if (openElement === 8) {
-                            alert('You win! Your time was'  + minutes + ':' + seconds);
+                            alert('You win! Your time was ' + minutes.innerHTML + ':' + seconds.innerHTML);
+                            location.reload();
                         }
                     }
                     else {
